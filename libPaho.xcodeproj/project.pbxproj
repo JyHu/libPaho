@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C89FA8A32A4F04E10025A407 /* libPahoA.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA8A22A4F04E10025A407 /* libPahoA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA8A92A4F05350025A407 /* libpaho-mqtt3a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */; };
-		C89FA92F2A4F1BFC0025A407 /* Paho.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C89FA92E2A4F1BFC0025A407 /* Paho.podspec */; };
+		C89FA92F2A4F1BFC0025A407 /* libPahoA.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */; };
 		C89FA94A2A4F1C5F0025A407 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9302A4F1C5F0025A407 /* Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA94B2A4F1C5F0025A407 /* Thread.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9312A4F1C5F0025A407 /* Thread.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA94C2A4F1C5F0025A407 /* MQTTSubscribeOpts.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9322A4F1C5F0025A407 /* MQTTSubscribeOpts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,7 +43,7 @@
 		C89FA8A22A4F04E10025A407 /* libPahoA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libPahoA.h; sourceTree = "<group>"; };
 		C89FA8A72A4F04ED0025A407 /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpaho-mqtt3a.a"; sourceTree = "<group>"; };
-		C89FA92E2A4F1BFC0025A407 /* Paho.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Paho.podspec; sourceTree = "<group>"; };
+		C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoA.podspec; sourceTree = "<group>"; };
 		C89FA9302A4F1C5F0025A407 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		C89FA9312A4F1C5F0025A407 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
 		C89FA9322A4F1C5F0025A407 /* MQTTSubscribeOpts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSubscribeOpts.h; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				C89FA8A72A4F04ED0025A407 /* generate.sh */,
-				C89FA92E2A4F1BFC0025A407 /* Paho.podspec */,
+				C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */,
 				C89FA8A12A4F04E10025A407 /* libPahoA */,
 				C89FA8A02A4F04E10025A407 /* Products */,
 			);
@@ -232,7 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89FA92F2A4F1BFC0025A407 /* Paho.podspec in Resources */,
+				C89FA92F2A4F1BFC0025A407 /* libPahoA.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
