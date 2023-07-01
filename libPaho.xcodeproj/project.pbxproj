@@ -131,8 +131,8 @@
 				C89FA9312A4F1C5F0025A407 /* Thread.h */,
 				C89FA9412A4F1C5F0025A407 /* Tree.h */,
 				C89FA9472A4F1C5F0025A407 /* utf-8.h */,
-				C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */,
 				C89FA8A22A4F04E10025A407 /* libPahoA.h */,
+				C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */,
 			);
 			path = libPahoA;
 			sourceTree = "<group>";

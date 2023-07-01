@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "libPahoA"
-  s.version     = "1.0.0"
+  s.version     = "0.1.0"
   s.summary     = "MQTT client library for iOS and OS X"
   s.homepage    = "https://github.com/JyHu/libPaho"
   s.license     = { :type => "MIT" }
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.12"
   s.ios.deployment_target = "11.0"
   s.tvos.deployment_target = "10.0"
-  s.source   = { :git => "https://github.com/JyHu/libPaho.git" }
+  s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
   
   s.source_files = "libPahoA/*.h"
   s.vendored_libraries = "libPahoA/libpaho-mqtt3a.a"

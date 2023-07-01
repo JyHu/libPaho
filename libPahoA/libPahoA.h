@@ -10,6 +10,8 @@
 #include "MQTTAsync.h"
 #include "MQTTClient.h"
 #include "MQTTProperties.h"
+#include "MQTTReasonCodes.h"
+#include "MQTTSubscribeOpts.h"
 
 //! Project version number for libPahoA.
 FOUNDATION_EXPORT double libPahoAVersionNumber;
