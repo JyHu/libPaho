@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C89FA8A32A4F04E10025A407 /* libPahoA.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA8A22A4F04E10025A407 /* libPahoA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA8A92A4F05350025A407 /* libpaho-mqtt3a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */; };
-		C89FA92F2A4F1BFC0025A407 /* libPahoA.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */; };
+		C89FA92F2A4F1BFC0025A407 /* libPahoC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */; };
 		C89FA94A2A4F1C5F0025A407 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9302A4F1C5F0025A407 /* Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA94B2A4F1C5F0025A407 /* Thread.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9312A4F1C5F0025A407 /* Thread.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA94C2A4F1C5F0025A407 /* MQTTSubscribeOpts.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9322A4F1C5F0025A407 /* MQTTSubscribeOpts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +36,9 @@
 		C89FA9612A4F1C5F0025A407 /* utf-8.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9472A4F1C5F0025A407 /* utf-8.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA9622A4F1C5F0025A407 /* MQTTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9482A4F1C5F0025A407 /* MQTTClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89FA9632A4F1C5F0025A407 /* MQTTClientPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = C89FA9492A4F1C5F0025A407 /* MQTTClientPersistence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C89FA9A92A506F700025A407 /* libpaho-mqtt3as.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA9A62A506F700025A407 /* libpaho-mqtt3as.a */; };
+		C89FA9AA2A506F700025A407 /* libpaho-mqtt3cs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA9A72A506F700025A407 /* libpaho-mqtt3cs.a */; };
+		C89FA9AB2A506F700025A407 /* libpaho-mqtt3c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA9A82A506F700025A407 /* libpaho-mqtt3c.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +46,7 @@
 		C89FA8A22A4F04E10025A407 /* libPahoA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libPahoA.h; sourceTree = "<group>"; };
 		C89FA8A72A4F04ED0025A407 /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpaho-mqtt3a.a"; sourceTree = "<group>"; };
-		C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoA.podspec; sourceTree = "<group>"; };
+		C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoC.podspec; sourceTree = "<group>"; };
 		C89FA9302A4F1C5F0025A407 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		C89FA9312A4F1C5F0025A407 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
 		C89FA9322A4F1C5F0025A407 /* MQTTSubscribeOpts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSubscribeOpts.h; sourceTree = "<group>"; };
@@ -70,6 +73,9 @@
 		C89FA9472A4F1C5F0025A407 /* utf-8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "utf-8.h"; sourceTree = "<group>"; };
 		C89FA9482A4F1C5F0025A407 /* MQTTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClient.h; sourceTree = "<group>"; };
 		C89FA9492A4F1C5F0025A407 /* MQTTClientPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClientPersistence.h; sourceTree = "<group>"; };
+		C89FA9A62A506F700025A407 /* libpaho-mqtt3as.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpaho-mqtt3as.a"; sourceTree = "<group>"; };
+		C89FA9A72A506F700025A407 /* libpaho-mqtt3cs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpaho-mqtt3cs.a"; sourceTree = "<group>"; };
+		C89FA9A82A506F700025A407 /* libpaho-mqtt3c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpaho-mqtt3c.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89FA8A92A4F05350025A407 /* libpaho-mqtt3a.a in Frameworks */,
+				C89FA9A92A506F700025A407 /* libpaho-mqtt3as.a in Frameworks */,
+				C89FA9AA2A506F700025A407 /* libpaho-mqtt3cs.a in Frameworks */,
+				C89FA9AB2A506F700025A407 /* libpaho-mqtt3c.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				C89FA8A72A4F04ED0025A407 /* generate.sh */,
-				C89FA92E2A4F1BFC0025A407 /* libPahoA.podspec */,
-				C89FA8A12A4F04E10025A407 /* libPahoA */,
+				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
+				C89FA8A12A4F04E10025A407 /* libPaho */,
 				C89FA8A02A4F04E10025A407 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,7 +111,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C89FA8A12A4F04E10025A407 /* libPahoA */ = {
+		C89FA8A12A4F04E10025A407 /* libPaho */ = {
 			isa = PBXGroup;
 			children = (
 				C89FA9302A4F1C5F0025A407 /* Base64.h */,
@@ -133,8 +142,11 @@
 				C89FA9472A4F1C5F0025A407 /* utf-8.h */,
 				C89FA8A22A4F04E10025A407 /* libPahoA.h */,
 				C89FA8A82A4F05350025A407 /* libpaho-mqtt3a.a */,
+				C89FA9A62A506F700025A407 /* libpaho-mqtt3as.a */,
+				C89FA9A82A506F700025A407 /* libpaho-mqtt3c.a */,
+				C89FA9A72A506F700025A407 /* libpaho-mqtt3cs.a */,
 			);
-			path = libPahoA;
+			path = libPaho;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89FA92F2A4F1BFC0025A407 /* libPahoA.podspec in Resources */,
+				C89FA92F2A4F1BFC0025A407 /* libPahoC.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
