@@ -12,22 +12,29 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
   
-  s.source_files = "libPaho/*.h"
-    
   s.subspec '3a' do |ss|
-    ss.vendored_libraries = "libPaho/libpaho-mqtt3a.a"
+    ss.source_files = "libPahoC/*.h"
+    ss.vendored_libraries = "libPahoC/libpaho-mqtt3a.a"
   end
  
   s.subspec '3as' do |ss|
-    ss.vendored_libraries = "libPaho/libpaho-mqtt3as.a"
+    ss.source_files = "libPahoC/*.h"
+    ss.vendored_libraries = "libPahoC/libpaho-mqtt3as.a"
   end
   
   s.subspec '3c' do |ss|
-    ss.vendored_libraries = "libPaho/libpaho-mqtt3c.a"
+    ss.source_files = "libPahoC/*.h"
+    ss.vendored_libraries = "libPahoC/libpaho-mqtt3c.a"
   end
  
   s.subspec '3cs' do |ss|
-    ss.vendored_libraries = "libPaho/libpaho-mqtt3cs.a"
+    ss.source_files = "libPahoC/*.h"
+    ss.dependency "libPahoC/ssl"
+    ss.vendored_libraries = "libPahoC/libpaho-mqtt3cs.a"
   end
   
+  s.subspec 'ssl' do |ss|
+    ss.source_files = "libssl/include/**/*.h"
+    ss.vendored_libraries = "libssl/lib/*.a"
+  end
 end

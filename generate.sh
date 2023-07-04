@@ -11,36 +11,51 @@ function LOG {
     echo ">> $1"
 }
 
+# 清理资源
 LOG "rm -rf tmp && mkdir tmp && cd tmp"
-#rm -rf tmp && mkdir tmp && cd tmp
-cd tmp
+rm -rf tmp && mkdir tmp && cd tmp
 
+# 下载最新的代码
 LOG "git clone https://github.com/eclipse/paho.mqtt.c ./"
-#git clone https://github.com/eclipse/paho.mqtt.c ./
+git clone https://github.com/eclipse/paho.mqtt.c ./
 
+# 需要修改CMakeLists中的几个参数，让他打包为.a文件，如果不设置会默认打包为dylib
 sed -e 's/PAHO_BUILD_SHARED\ TRUE/PAHO_BUILD_SHARED\ FALSE/g' \
     -e 's/PAHO_BUILD_STATIC\ FALSE/PAHO_BUILD_STATIC\ TRUE/g' \
-    -e 's/PAHO_ENABLE_TESTING\ TRUE/PAHO_ENABLE_TESTING\ FALSE/g' "./CMakeLists.txt" > "./CMakeLists_Modify.txt"
+    -e 's/PAHO_ENABLE_TESTING\ TRUE/PAHO_ENABLE_TESTING\ FALSE/g' \
+             "./CMakeLists.txt" > "./CMakeLists_Modify.txt"
 mv ./CMakeLists_Modify.txt ./CMakeLists.txt
 
+# 新建一个临时的编译目录
 LOG "mkdir build && cd build"
 rm -rf build
 mkdir build && cd build
 
+# 设置环境变量，让他支持arm64;x86_64，且可以找到openssl库
+CUR_FOLDER=$(pwd)
 export CMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-export OPENSSL_ROOT_DIR="/usr/local/Cellar/openssl@3/3.1.1_1"
+export OPENSSL_ROOT_DIR="$CUR_FOLDER/libssl"
+export OPENSSL_INCLUDE_DIR="$CUR_FOLDER/libssl/include"
+export OPENSSL_LIBRARIES="$CUR_FOLDER/libssl/lib"
 
+# 生成make资源
 echo $OPENSSL_ROOT_DIR
 LOG "cmake .."
 cmake -DPAHO_WITH_SSL=TRUE -DPAHO_BUILD_DOCUMENTATION=FALSE -DPAHO_BUILD_SAMPLES=FALSE ..
-#cmake ..
 
-
+# 开始打包
 LOG "make"
 make
 
+# 移动打包资源
 cd ../../
+mv ./libPahoC/libPahoC.h ./libPahoC.h
+rm -rf libPahoC
+mkdir libPahoC
+cp -a ./tmp/src/*.h ./libPahoC
+mv ./libPahoC.h ./libPahoC/libPahoC.h
 
+# 检查需要的.a资源是否存在
 function CHECK_LIB {
     LOG "Check $1"
     LIB_FILE="./tmp/build/src/$1"
@@ -50,7 +65,7 @@ function CHECK_LIB {
         
         if [[ $LIPO_INFO =~ "x86_64" ]] && [[ $LIPO_INFO =~ "arm64" ]]; then
             echo "✅ $1 包含 x86_64 和 arm64"
-            mv $LIB_FILE ./libPaho/$1
+            mv $LIB_FILE ./libPahoC/$1
         else
             echo "❌ dylib 不包含 x86_64 和 arm64"
         fi
@@ -66,6 +81,7 @@ CHECK_LIB "libpaho-mqtt3as.a"
 CHECK_LIB "libpaho-mqtt3c.a"
 CHECK_LIB "libpaho-mqtt3cs.a"
 
+# 清理资源
 LOG "rm -rf tmp"
 rm -rf tmp
 
