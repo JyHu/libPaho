@@ -19,7 +19,13 @@ mkdir ssl_build/arm64
 
 # 新建一个临时的编译目录
 SSL_BUILD_FOLD=$(pwd)/ssl_build
-SSL_SOURCE_FOLD="openssl-3.1.1"
+
+SSL_TAR_FILE=$(find . -type f -name 'openssl*.tar.gz')
+if [ -z $SSL_TAR_FILE ]; then
+    LOG "openssl tar file not found"
+    exit 0
+fi
+LOG "find tar $SSL_TAR_FILE"
 
 echo $SSL_BUILD_FOLD
 
@@ -35,7 +41,14 @@ function ARCH_BUILD {
     LOG "Build arch $1 ..."
     
     # 解压一下源代码压缩包
-    tar -xzf openssl-3.1.1.tar.gz
+    tar -xzf $SSL_TAR_FILE
+    
+    SSL_SOURCE_FOLD=$(find . -type d -name 'openssl-*')
+    if [ -z $SSL_SOURCE_FOLD ]; then
+        LOG "openssl source foler not found"
+        exit 0
+    fi
+    LOG "find openssl folder $SSL_SOURCE_FOLD"
     cd $SSL_SOURCE_FOLD
     
     # 设置一下变量
@@ -84,7 +97,7 @@ mkdir libssl
 mkdir libssl/lib
 
 # 合并x86_64 arm64架构的.a为一个文件
-lipo -create $ARM64_SSL $X86_64_SSL -output ./libssl/lib/libssl.a
+lipo -create $ARM64_SSL $X86_64_SSL       -output ./libssl/lib/libssl.a
 lipo -create $ARM64_CRYPTO $X86_64_CRYPTO -output ./libssl/lib/libcrypto.a
 
 # 移动头文件
