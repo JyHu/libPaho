@@ -185,6 +185,7 @@
 		C8473CFC2A5516CC004681B4 /* asn1err.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1err.h; sourceTree = "<group>"; };
 		C8473CFE2A5516CC004681B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		C8473CFF2A5516CC004681B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		C877DCE52A5526A600875C41 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C89FA8A72A4F04ED0025A407 /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C89FA9B32A5079690025A407 /* libPahoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libPahoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,6 +419,7 @@
 		C89FA8932A4F04CE0025A407 = {
 			isa = PBXGroup;
 			children = (
+				C877DCE52A5526A600875C41 /* README.md */,
 				C89FA8A72A4F04ED0025A407 /* generate.sh */,
 				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
 				C842230D2A52A93A00F145A7 /* gen_ssl.sh */,
