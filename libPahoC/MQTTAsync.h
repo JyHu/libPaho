@@ -438,6 +438,7 @@ typedef void MQTTAsync_connected(void* context, char* cause);
  * @param context A pointer to the <i>context</i> value originally passed to
  * MQTTAsync_setCallbacks(), which contains any application-specific context.
  * @param properties the properties in the disconnect packet.
+ * @param properties the reason code from the disconnect packet
  * Currently, <i>cause</i> is always set to NULL.
  */
 typedef void MQTTAsync_disconnected(void* context, MQTTProperties* properties,

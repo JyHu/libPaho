@@ -11,6 +11,8 @@ function LOG {
     echo ">> $1"
 }
 
+CUR_FOLDER=$(pwd)
+
 # 清理资源
 LOG "rm -rf tmp && mkdir tmp && cd tmp"
 rm -rf tmp && mkdir tmp && cd tmp
@@ -19,29 +21,25 @@ rm -rf tmp && mkdir tmp && cd tmp
 LOG "git clone https://github.com/eclipse/paho.mqtt.c ./"
 git clone https://github.com/eclipse/paho.mqtt.c ./
 
-# 需要修改CMakeLists中的几个参数，让他打包为.a文件，如果不设置会默认打包为dylib
-sed -e 's/PAHO_BUILD_SHARED\ TRUE/PAHO_BUILD_SHARED\ FALSE/g' \
-    -e 's/PAHO_BUILD_STATIC\ FALSE/PAHO_BUILD_STATIC\ TRUE/g' \
-    -e 's/PAHO_ENABLE_TESTING\ TRUE/PAHO_ENABLE_TESTING\ FALSE/g' \
-             "./CMakeLists.txt" > "./CMakeLists_Modify.txt"
-mv ./CMakeLists_Modify.txt ./CMakeLists.txt
-
 # 新建一个临时的编译目录
 LOG "mkdir build && cd build"
 rm -rf build
 mkdir build && cd build
 
-# 设置环境变量，让他支持arm64;x86_64，且可以找到openssl库
-CUR_FOLDER=$(pwd)
-export CMAKE_OSX_ARCHITECTURES="arm64;x86_64"
-export OPENSSL_ROOT_DIR="$CUR_FOLDER/libssl"
-export OPENSSL_INCLUDE_DIR="$CUR_FOLDER/libssl/include"
-export OPENSSL_LIBRARIES="$CUR_FOLDER/libssl/lib"
-
 # 生成make资源
 echo $OPENSSL_ROOT_DIR
 LOG "cmake .."
-cmake -DPAHO_WITH_SSL=TRUE -DPAHO_BUILD_DOCUMENTATION=FALSE -DPAHO_BUILD_SAMPLES=FALSE ..
+cmake -DPAHO_BUILD_SHARED=FALSE             \
+    -DPAHO_BUILD_STATIC=TRUE                \
+    -DPAHO_HIGH_PERFORMANCE=TRUE            \
+    -DPAHO_WITH_SSL=TRUE                    \
+    -DPAHO_ENABLE_TESTING=FALSE             \
+    -DOPENSSL_ROOT_DIR="$CUR_FOLDER/libssl" \
+    -DOPENSSL_INCLUDE_DIR="$CUR_FOLDER/libssl/include" \
+    -DOPENSSL_LIBRARIES="$CUR_FOLDER/libssl/lib"    \
+    -DCMAKE_BUILD_TYPE=Release                      \
+    -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"        \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON ..
 
 # 开始打包
 LOG "make"

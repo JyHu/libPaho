@@ -2,8 +2,8 @@
 
 
 依赖项目：
-eclipse.paho.c https://github.com/eclipse/paho.mqtt.c
-openssl https://www.openssl.org/source/
+- eclipse.paho.c https://github.com/eclipse/paho.mqtt.c
+- openssl https://www.openssl.org/source/
 
 
 ```

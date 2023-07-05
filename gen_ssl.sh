@@ -103,4 +103,4 @@ lipo -create $ARM64_CRYPTO $X86_64_CRYPTO -output ./libssl/lib/libcrypto.a
 # 移动头文件
 mv $SSL_BUILD_FOLD/arm64/include ./libssl/include
 
-rm -rf $SSL_BUILD_FOLD
+ rm -rf $SSL_BUILD_FOLD
