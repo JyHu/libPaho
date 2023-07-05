@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
  
   s.subspec '3as' do |ss|
     ss.source_files = "libPahoC/*.h"
+    ss.dependency "libPahoC/ssl"
     ss.vendored_libraries = "libPahoC/libpaho-mqtt3as.a"
   end
   

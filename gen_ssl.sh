@@ -19,7 +19,7 @@ mkdir ssl_build/arm64
 
 # 新建一个临时的编译目录
 SSL_BUILD_FOLD=$(pwd)/ssl_build
-SSL_SOURCE_FOLD="openssl-1.1.1u"
+SSL_SOURCE_FOLD="openssl-3.1.1"
 
 echo $SSL_BUILD_FOLD
 
@@ -35,7 +35,7 @@ function ARCH_BUILD {
     LOG "Build arch $1 ..."
     
     # 解压一下源代码压缩包
-    tar -xzf openssl-1.1.1u.tar.gz
+    tar -xzf openssl-3.1.1.tar.gz
     cd $SSL_SOURCE_FOLD
     
     # 设置一下变量
