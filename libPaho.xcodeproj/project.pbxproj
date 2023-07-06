@@ -186,9 +186,10 @@
 		C8473CFE2A5516CC004681B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		C8473CFF2A5516CC004681B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		C877DCE52A5526A600875C41 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C89FA8A72A4F04ED0025A407 /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
 		C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C89FA9B32A5079690025A407 /* libPahoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libPahoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A219FA2A56E16C0088B4ED /* openssl_platforms */ = {isa = PBXFileReference; lastKnownFileType = text; path = openssl_platforms; sourceTree = "<group>"; };
+		C8A219FD2A56FD350088B4ED /* gen_paho.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gen_paho.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,45 +206,8 @@
 		C8473C4A2A5456FD004681B4 /* libPahoC */ = {
 			isa = PBXGroup;
 			children = (
-				C8473C4B2A5456FD004681B4 /* MQTTReasonCodes.h */,
-				C8473C4C2A5456FD004681B4 /* Clients.h */,
-				C8473C4D2A5456FD004681B4 /* Messages.h */,
-				C8473C4E2A5456FD004681B4 /* MQTTPacket.h */,
-				C8473C4F2A5456FD004681B4 /* StackTrace.h */,
-				C8473C502A5456FD004681B4 /* Base64.h */,
-				C8473C512A5456FD004681B4 /* MQTTPersistence.h */,
-				C8473C522A5456FD004681B4 /* MQTTPacketOut.h */,
-				C8473C532A5456FD004681B4 /* WebSocket.h */,
-				C8473C542A5456FD004681B4 /* MQTTExportDeclarations.h */,
-				C8473C552A5456FD004681B4 /* libpaho-mqtt3as.a */,
-				C8473C562A5456FD004681B4 /* libpaho-mqtt3a.a */,
-				C8473C572A5456FD004681B4 /* LinkedList.h */,
-				C8473C582A5456FD004681B4 /* MQTTPersistenceDefault.h */,
-				C8473C592A5456FD004681B4 /* Tree.h */,
-				C8473C5A2A5456FD004681B4 /* MQTTProtocolOut.h */,
-				C8473C5B2A5456FD004681B4 /* mutex_type.h */,
-				C8473C5C2A5456FD004681B4 /* libPahoC.h */,
-				C8473C5D2A5456FD004681B4 /* MQTTSubscribeOpts.h */,
-				C8473C5E2A5456FD004681B4 /* libpaho-mqtt3cs.a */,
-				C8473C5F2A5456FD004681B4 /* SSLSocket.h */,
-				C8473C602A5456FD004681B4 /* Thread.h */,
-				C8473C612A5456FD004681B4 /* MQTTClient.h */,
-				C8473C622A5456FD004681B4 /* MQTTAsyncUtils.h */,
-				C8473C632A5456FD004681B4 /* MQTTProtocolClient.h */,
-				C8473C642A5456FD004681B4 /* Proxy.h */,
-				C8473C652A5456FD004681B4 /* Log.h */,
-				C8473C662A5456FD004681B4 /* SocketBuffer.h */,
-				C8473C672A5456FD004681B4 /* Heap.h */,
-				C8473C682A5456FD004681B4 /* SHA1.h */,
-				C8473C692A5456FD004681B4 /* MQTTClientPersistence.h */,
-				C8473C6A2A5456FD004681B4 /* libpaho-mqtt3c.a */,
-				C8473C6B2A5456FD004681B4 /* utf-8.h */,
-				C8473C6C2A5456FD004681B4 /* MQTTProtocol.h */,
-				C8473C6D2A5456FD004681B4 /* MQTTTime.h */,
-				C8473C6E2A5456FD004681B4 /* MQTTProperties.h */,
-				C8473C6F2A5456FD004681B4 /* Socket.h */,
-				C8473C702A5456FD004681B4 /* MQTTAsync.h */,
-				C8473C712A5456FD004681B4 /* OsWrapper.h */,
+				C8A219FC2A56FB860088B4ED /* libs */,
+				C8A219FB2A56FB7A0088B4ED /* headers */,
 			);
 			path = libPahoC;
 			sourceTree = "<group>";
@@ -420,8 +384,9 @@
 			isa = PBXGroup;
 			children = (
 				C877DCE52A5526A600875C41 /* README.md */,
-				C89FA8A72A4F04ED0025A407 /* generate.sh */,
 				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
+				C8A219FA2A56E16C0088B4ED /* openssl_platforms */,
+				C8A219FD2A56FD350088B4ED /* gen_paho.sh */,
 				C842230D2A52A93A00F145A7 /* gen_ssl.sh */,
 				C8473C722A55121B004681B4 /* openssl-3.1.1.tar.gz */,
 				C8473C732A5516CC004681B4 /* libssl */,
@@ -436,6 +401,59 @@
 				C89FA9B32A5079690025A407 /* libPahoC.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C8A219FB2A56FB7A0088B4ED /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				C8473C502A5456FD004681B4 /* Base64.h */,
+				C8473C4C2A5456FD004681B4 /* Clients.h */,
+				C8473C672A5456FD004681B4 /* Heap.h */,
+				C8473C5C2A5456FD004681B4 /* libPahoC.h */,
+				C8473C572A5456FD004681B4 /* LinkedList.h */,
+				C8473C652A5456FD004681B4 /* Log.h */,
+				C8473C4D2A5456FD004681B4 /* Messages.h */,
+				C8473C702A5456FD004681B4 /* MQTTAsync.h */,
+				C8473C622A5456FD004681B4 /* MQTTAsyncUtils.h */,
+				C8473C612A5456FD004681B4 /* MQTTClient.h */,
+				C8473C692A5456FD004681B4 /* MQTTClientPersistence.h */,
+				C8473C542A5456FD004681B4 /* MQTTExportDeclarations.h */,
+				C8473C4E2A5456FD004681B4 /* MQTTPacket.h */,
+				C8473C522A5456FD004681B4 /* MQTTPacketOut.h */,
+				C8473C512A5456FD004681B4 /* MQTTPersistence.h */,
+				C8473C582A5456FD004681B4 /* MQTTPersistenceDefault.h */,
+				C8473C6E2A5456FD004681B4 /* MQTTProperties.h */,
+				C8473C6C2A5456FD004681B4 /* MQTTProtocol.h */,
+				C8473C632A5456FD004681B4 /* MQTTProtocolClient.h */,
+				C8473C5A2A5456FD004681B4 /* MQTTProtocolOut.h */,
+				C8473C4B2A5456FD004681B4 /* MQTTReasonCodes.h */,
+				C8473C5D2A5456FD004681B4 /* MQTTSubscribeOpts.h */,
+				C8473C6D2A5456FD004681B4 /* MQTTTime.h */,
+				C8473C5B2A5456FD004681B4 /* mutex_type.h */,
+				C8473C712A5456FD004681B4 /* OsWrapper.h */,
+				C8473C642A5456FD004681B4 /* Proxy.h */,
+				C8473C682A5456FD004681B4 /* SHA1.h */,
+				C8473C6F2A5456FD004681B4 /* Socket.h */,
+				C8473C662A5456FD004681B4 /* SocketBuffer.h */,
+				C8473C5F2A5456FD004681B4 /* SSLSocket.h */,
+				C8473C4F2A5456FD004681B4 /* StackTrace.h */,
+				C8473C602A5456FD004681B4 /* Thread.h */,
+				C8473C592A5456FD004681B4 /* Tree.h */,
+				C8473C6B2A5456FD004681B4 /* utf-8.h */,
+				C8473C532A5456FD004681B4 /* WebSocket.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		C8A219FC2A56FB860088B4ED /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C8473C552A5456FD004681B4 /* libpaho-mqtt3as.a */,
+				C8473C562A5456FD004681B4 /* libpaho-mqtt3a.a */,
+				C8473C5E2A5456FD004681B4 /* libpaho-mqtt3cs.a */,
+				C8473C6A2A5456FD004681B4 /* libpaho-mqtt3c.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
