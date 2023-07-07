@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
   
   s.subspec 'client' do |ss|
-    ss.source_files = "client/*.h"
+    ss.source_files = "client/*.{h,m}"
   end
   
   # 异步包
