@@ -12,9 +12,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
   
+  s.subspec 'client' do |ss|
+    ss.source_files = "client/*.h"
+  end
+  
   # 异步包
   s.subspec '3a' do |ss|
     ss.source_files = "libPahoC/headers/*.h"
+    ss.dependency "libPahoC/client"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3a.a"
   end
  
@@ -22,12 +27,14 @@ Pod::Spec.new do |s|
   s.subspec '3as' do |ss|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
+    ss.dependency "libPahoC/client"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3as.a"
   end
   
   # 同步包
   s.subspec '3c' do |ss|
     ss.source_files = "libPahoC/headers/*.h"
+    ss.dependency "libPahoC/client"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3c.a"
   end
  
@@ -35,6 +42,7 @@ Pod::Spec.new do |s|
   s.subspec '3cs' do |ss|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
+    ss.dependency "libPahoC/client"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3cs.a"
   end
   
@@ -42,5 +50,6 @@ Pod::Spec.new do |s|
   s.subspec 'ssl' do |ss|
     ss.source_files = "libssl/include/**/*.h"
     ss.vendored_libraries = "libssl/lib/*.a"
+    ss.dependency "libPahoC/client"
   end
 end
