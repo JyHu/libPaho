@@ -6,6 +6,44 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C8A21B792A585B480088B4ED /* CocoaPaho.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A21B782A585B480088B4ED /* CocoaPaho.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8A21B7D2A585B510088B4ED /* PahoMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B542A5843180088B4ED /* PahoMessages.m */; };
+		C8A21B7E2A585B510088B4ED /* PahoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B442A5843180088B4ED /* PahoHelper.m */; };
+		C8A21B7F2A585B510088B4ED /* PahoPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B4C2A5843180088B4ED /* PahoPublisher.m */; };
+		C8A21B802A585B510088B4ED /* PahoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B482A5843180088B4ED /* PahoResponse.m */; };
+		C8A21B812A585B510088B4ED /* PahoClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B492A5843180088B4ED /* PahoClient.m */; };
+		C8A21B822A585B510088B4ED /* PahoSSLOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B502A5843180088B4ED /* PahoSSLOptions.m */; };
+		C8A21B832A585B510088B4ED /* PahoProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B4B2A5843180088B4ED /* PahoProperties.m */; };
+		C8A21B842A585B510088B4ED /* PahoTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A21B422A5843180088B4ED /* PahoTopic.m */; };
+		C8A21B862A58F3110088B4ED /* libPahoC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA9B32A5079690025A407 /* libPahoC.framework */; };
+		C8A21B872A58F3110088B4ED /* libPahoC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C89FA9B32A5079690025A407 /* libPahoC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8A21B882A58F3110088B4ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C89FA8942A4F04CE0025A407 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C89FA9B22A5079690025A407;
+			remoteInfo = libPahoC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C8A21B8A2A58F3110088B4ED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C8A21B872A58F3110088B4ED /* libPahoC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C842230D2A52A93A00F145A7 /* gen_ssl.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gen_ssl.sh; sourceTree = "<group>"; };
 		C8473C4B2A5456FD004681B4 /* MQTTReasonCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTTReasonCodes.h; sourceTree = "<group>"; };
@@ -190,6 +228,30 @@
 		C89FA9B32A5079690025A407 /* libPahoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libPahoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A219FA2A56E16C0088B4ED /* openssl_platforms */ = {isa = PBXFileReference; lastKnownFileType = text; path = openssl_platforms; sourceTree = "<group>"; };
 		C8A219FD2A56FD350088B4ED /* gen_paho.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gen_paho.sh; sourceTree = "<group>"; };
+		C8A21B412A5843180088B4ED /* PahoClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoClient.h; sourceTree = "<group>"; };
+		C8A21B422A5843180088B4ED /* PahoTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoTopic.m; sourceTree = "<group>"; };
+		C8A21B432A5843180088B4ED /* PahoTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoTopic.h; sourceTree = "<group>"; };
+		C8A21B442A5843180088B4ED /* PahoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoHelper.m; sourceTree = "<group>"; };
+		C8A21B452A5843180088B4ED /* PahoProperties+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PahoProperties+Private.h"; sourceTree = "<group>"; };
+		C8A21B462A5843180088B4ED /* PahoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoHelper.h; sourceTree = "<group>"; };
+		C8A21B472A5843180088B4ED /* PahoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoResponse.h; sourceTree = "<group>"; };
+		C8A21B482A5843180088B4ED /* PahoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoResponse.m; sourceTree = "<group>"; };
+		C8A21B492A5843180088B4ED /* PahoClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoClient.m; sourceTree = "<group>"; };
+		C8A21B4A2A5843180088B4ED /* PahoPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoPublisher.h; sourceTree = "<group>"; };
+		C8A21B4B2A5843180088B4ED /* PahoProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoProperties.m; sourceTree = "<group>"; };
+		C8A21B4C2A5843180088B4ED /* PahoPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoPublisher.m; sourceTree = "<group>"; };
+		C8A21B4D2A5843180088B4ED /* PahoMessages+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PahoMessages+Private.h"; sourceTree = "<group>"; };
+		C8A21B4E2A5843180088B4ED /* PahoResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PahoResponse+Private.h"; sourceTree = "<group>"; };
+		C8A21B4F2A5843180088B4ED /* PahoMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoMessages.h; sourceTree = "<group>"; };
+		C8A21B502A5843180088B4ED /* PahoSSLOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoSSLOptions.m; sourceTree = "<group>"; };
+		C8A21B512A5843180088B4ED /* PahoSSLOptions+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PahoSSLOptions+Private.h"; sourceTree = "<group>"; };
+		C8A21B522A5843180088B4ED /* PahoProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoProperties.h; sourceTree = "<group>"; };
+		C8A21B532A5843180088B4ED /* PahoConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoConstants.h; sourceTree = "<group>"; };
+		C8A21B542A5843180088B4ED /* PahoMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PahoMessages.m; sourceTree = "<group>"; };
+		C8A21B552A5843180088B4ED /* PahoSSLOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoSSLOptions.h; sourceTree = "<group>"; };
+		C8A21B762A585B480088B4ED /* CocoaPaho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPaho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A21B782A585B480088B4ED /* CocoaPaho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaPaho.h; sourceTree = "<group>"; };
+		C8A21B852A585BF60088B4ED /* CocoaPaho.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CocoaPaho.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +259,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A21B732A585B480088B4ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A21B862A58F3110088B4ED /* libPahoC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,13 +455,16 @@
 			children = (
 				C877DCE52A5526A600875C41 /* README.md */,
 				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
+				C8A21B852A585BF60088B4ED /* CocoaPaho.podspec */,
 				C8A219FA2A56E16C0088B4ED /* openssl_platforms */,
 				C8A219FD2A56FD350088B4ED /* gen_paho.sh */,
 				C842230D2A52A93A00F145A7 /* gen_ssl.sh */,
 				C8473C722A55121B004681B4 /* openssl-3.1.1.tar.gz */,
 				C8473C732A5516CC004681B4 /* libssl */,
 				C8473C4A2A5456FD004681B4 /* libPahoC */,
+				C8A21B772A585B480088B4ED /* CocoaPaho */,
 				C89FA8A02A4F04E10025A407 /* Products */,
+				C8A21B6B2A5843740088B4ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -399,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				C89FA9B32A5079690025A407 /* libPahoC.framework */,
+				C8A21B762A585B480088B4ED /* CocoaPaho.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -456,6 +530,42 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		C8A21B6B2A5843740088B4ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8A21B772A585B480088B4ED /* CocoaPaho */ = {
+			isa = PBXGroup;
+			children = (
+				C8A21B412A5843180088B4ED /* PahoClient.h */,
+				C8A21B492A5843180088B4ED /* PahoClient.m */,
+				C8A21B532A5843180088B4ED /* PahoConstants.h */,
+				C8A21B462A5843180088B4ED /* PahoHelper.h */,
+				C8A21B442A5843180088B4ED /* PahoHelper.m */,
+				C8A21B4F2A5843180088B4ED /* PahoMessages.h */,
+				C8A21B542A5843180088B4ED /* PahoMessages.m */,
+				C8A21B4D2A5843180088B4ED /* PahoMessages+Private.h */,
+				C8A21B522A5843180088B4ED /* PahoProperties.h */,
+				C8A21B4B2A5843180088B4ED /* PahoProperties.m */,
+				C8A21B452A5843180088B4ED /* PahoProperties+Private.h */,
+				C8A21B4A2A5843180088B4ED /* PahoPublisher.h */,
+				C8A21B4C2A5843180088B4ED /* PahoPublisher.m */,
+				C8A21B472A5843180088B4ED /* PahoResponse.h */,
+				C8A21B482A5843180088B4ED /* PahoResponse.m */,
+				C8A21B4E2A5843180088B4ED /* PahoResponse+Private.h */,
+				C8A21B552A5843180088B4ED /* PahoSSLOptions.h */,
+				C8A21B502A5843180088B4ED /* PahoSSLOptions.m */,
+				C8A21B512A5843180088B4ED /* PahoSSLOptions+Private.h */,
+				C8A21B432A5843180088B4ED /* PahoTopic.h */,
+				C8A21B422A5843180088B4ED /* PahoTopic.m */,
+				C8A21B782A585B480088B4ED /* CocoaPaho.h */,
+			);
+			path = CocoaPaho;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -463,6 +573,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A21B712A585B480088B4ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A21B792A585B480088B4ED /* CocoaPaho.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +605,26 @@
 			productReference = C89FA9B32A5079690025A407 /* libPahoC.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C8A21B752A585B480088B4ED /* CocoaPaho */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8A21B7A2A585B480088B4ED /* Build configuration list for PBXNativeTarget "CocoaPaho" */;
+			buildPhases = (
+				C8A21B712A585B480088B4ED /* Headers */,
+				C8A21B722A585B480088B4ED /* Sources */,
+				C8A21B732A585B480088B4ED /* Frameworks */,
+				C8A21B742A585B480088B4ED /* Resources */,
+				C8A21B8A2A58F3110088B4ED /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8A21B892A58F3110088B4ED /* PBXTargetDependency */,
+			);
+			name = CocoaPaho;
+			productName = CocoaPaho;
+			productReference = C8A21B762A585B480088B4ED /* CocoaPaho.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -497,6 +635,9 @@
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					C89FA9B22A5079690025A407 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					C8A21B752A585B480088B4ED = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -515,12 +656,20 @@
 			projectRoot = "";
 			targets = (
 				C89FA9B22A5079690025A407 /* libPahoC */,
+				C8A21B752A585B480088B4ED /* CocoaPaho */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C89FA9B12A5079690025A407 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A21B742A585B480088B4ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,7 +686,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8A21B722A585B480088B4ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A21B802A585B510088B4ED /* PahoResponse.m in Sources */,
+				C8A21B822A585B510088B4ED /* PahoSSLOptions.m in Sources */,
+				C8A21B7D2A585B510088B4ED /* PahoMessages.m in Sources */,
+				C8A21B832A585B510088B4ED /* PahoProperties.m in Sources */,
+				C8A21B812A585B510088B4ED /* PahoClient.m in Sources */,
+				C8A21B842A585B510088B4ED /* PahoTopic.m in Sources */,
+				C8A21B7E2A585B510088B4ED /* PahoHelper.m in Sources */,
+				C8A21B7F2A585B510088B4ED /* PahoPublisher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8A21B892A58F3110088B4ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C89FA9B22A5079690025A407 /* libPahoC */;
+			targetProxy = C8A21B882A58F3110088B4ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C89FA8982A4F04CE0025A407 /* Debug */ = {
@@ -731,6 +903,177 @@
 			};
 			name = Release;
 		};
+		C8A21B7B2A585B480088B4ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EHNB49T236;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auu.CocoaPaho;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C8A21B7C2A585B480088B4ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EHNB49T236;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auu.CocoaPaho;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -748,6 +1091,15 @@
 			buildConfigurations = (
 				C89FA9B82A5079690025A407 /* Debug */,
 				C89FA9B92A5079690025A407 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8A21B7A2A585B480088B4ED /* Build configuration list for PBXNativeTarget "CocoaPaho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8A21B7B2A585B480088B4ED /* Debug */,
+				C8A21B7C2A585B480088B4ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
