@@ -40,6 +40,7 @@ let package = Package(
         .target(
             name: "CocoaPaho",
             dependencies: ["libPahoC"],
+            publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include")
             ]
