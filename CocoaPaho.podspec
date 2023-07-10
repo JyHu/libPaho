@@ -15,24 +15,24 @@ Pod::Spec.new do |s|
   # 异步包
   s.subspec '3a' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}"
-    ss.dependency "libPahoC/3a"
+#    ss.dependency "libPahoC/3a"
   end
  
   # 异步包+支持openssl
   s.subspec '3as' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}"
-    ss.dependency "libPahoC/3as"
+#    ss.dependency "libPahoC/3as"
   end
   
   # 同步包
   s.subspec '3c' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}"
-    ss.dependency "libPahoC/3c"
+#    ss.dependency "libPahoC/3c"
   end
  
   # 同步包+支持openssl
   s.subspec '3cs' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}"
-    ss.dependency "libPahoC/3cs"
+#    ss.dependency "libPahoC/3cs"
   end
 end
