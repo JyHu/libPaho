@@ -1,0 +1,11 @@
+module CocoaPaho {
+    header "PahoClient.h"
+    header "PahoConstants.h"
+    header "PahoMessages.h"
+    header "PahoProperties.h"
+    header "PahoPublisher.h"
+    header "PahoResponse.h"
+    header "PahoSSLOptions.h"
+    header "PahoTopic.h"
+    export *
+}

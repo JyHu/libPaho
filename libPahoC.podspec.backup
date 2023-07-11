@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.12"
   s.ios.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
+  s.module_map = "CocoaPaho/module.modulemap"
   
   # 异步包
   s.subspec '3a' do |ss|
@@ -44,39 +45,41 @@ Pod::Spec.new do |s|
     ss.vendored_libraries = "libssl/lib/*.a"
   end
   
+  
   #
-  # ============================================================================
+  # =======================================================
   #
   
+  
   s.subspec 'CocoaPaho' do |ss|
-    ss.source_files = "CocoaPaho/*.{h,m}", "modulemap/cocoa_module.modulemap"
+    ss.source_files = "CocoaPaho/*.{h,m}", "CocoaPaho/module.modulemap"
   end
   
   # 异步包
   s.subspec 'Cocoa3a' do |ss|
     ss.dependency "libPahoC/3a"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+#    s.module_map = "CocoaPaho/module.modulemap"
   end
  
   # 异步包+支持openssl
   s.subspec 'Cocoa3as' do |ss|
     ss.dependency "libPahoC/3as"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+    s.module_map = "CocoaPaho/module.modulemap"
   end
   
   # 同步包
   s.subspec 'Cocoa3c' do |ss|
     ss.dependency "libPahoC/3c"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+#    s.module_map = "CocoaPaho/module.modulemap"
   end
  
   # 同步包+支持openssl
   s.subspec 'Cocoa3cs' do |ss|
     ss.dependency "libPahoC/3cs"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+#    s.module_map = "CocoaPaho/module.modulemap"
   end
 end

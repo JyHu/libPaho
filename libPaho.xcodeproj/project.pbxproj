@@ -379,6 +379,9 @@
 		C8473CFC2A5516CC004681B4 /* asn1err.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1err.h; sourceTree = "<group>"; };
 		C8473CFE2A5516CC004681B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		C8473CFF2A5516CC004681B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		C8690A9D2A5C5E450054E97B /* cocoa_module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = cocoa_module.modulemap; sourceTree = "<group>"; };
+		C8690A9F2A5CFB590054E97B /* libPahoC.podspec.backup */ = {isa = PBXFileReference; lastKnownFileType = text; path = libPahoC.podspec.backup; sourceTree = "<group>"; };
+		C8690AA12A5CFE880054E97B /* libPahoC.podspec.backup2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = libPahoC.podspec.backup2; sourceTree = "<group>"; };
 		C877DCE52A5526A600875C41 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libPahoC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C89FA9B32A5079690025A407 /* libPahoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libPahoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -595,16 +598,27 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		C8690AA02A5CFB890054E97B /* modulemap */ = {
+			isa = PBXGroup;
+			children = (
+				C8690A9D2A5C5E450054E97B /* cocoa_module.modulemap */,
+			);
+			path = modulemap;
+			sourceTree = "<group>";
+		};
 		C89FA8932A4F04CE0025A407 = {
 			isa = PBXGroup;
 			children = (
 				C877DCE52A5526A600875C41 /* README.md */,
 				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
+				C8690A9F2A5CFB590054E97B /* libPahoC.podspec.backup */,
+				C8690AA12A5CFE880054E97B /* libPahoC.podspec.backup2 */,
 				C8A219FA2A56E16C0088B4ED /* openssl_platforms */,
 				C8A219FD2A56FD350088B4ED /* gen_paho.sh */,
 				C842230D2A52A93A00F145A7 /* gen_ssl.sh */,
 				C8473C722A55121B004681B4 /* openssl-3.1.1.tar.gz */,
-				C8A21A602A583B3A0088B4ED /* client */,
+				C8690AA02A5CFB890054E97B /* modulemap */,
+				C8A21A602A583B3A0088B4ED /* CocoaPaho */,
 				C8473C732A5516CC004681B4 /* libssl */,
 				C8473C4A2A5456FD004681B4 /* libPahoC */,
 				C89FA8A02A4F04E10025A407 /* Products */,
@@ -672,7 +686,7 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
-		C8A21A602A583B3A0088B4ED /* client */ = {
+		C8A21A602A583B3A0088B4ED /* CocoaPaho */ = {
 			isa = PBXGroup;
 			children = (
 				C8A21A6D2A583B3A0088B4ED /* PahoClient.h */,
@@ -697,7 +711,7 @@
 				C8A21A672A583B3A0088B4ED /* PahoTopic.h */,
 				C8A21A6E2A583B3A0088B4ED /* PahoTopic.m */,
 			);
-			path = client;
+			path = CocoaPaho;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
