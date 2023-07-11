@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "libPahoC"
-  s.version     = "0.1.0"
+  s.version     = "0.2.0"
   s.summary     = "MQTT client library for iOS and OS X"
   s.homepage    = "https://github.com/JyHu/libPaho"
   s.license     = { :type => "MIT" }
@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
   s.requires_arc = true
   s.osx.deployment_target = "10.12"
-  s.ios.deployment_target = "11.0"
-  s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
+#  s.ios.deployment_target = "11.0"
+  s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '$(s.version)' }
   
   #
   # ============================================================================
@@ -31,9 +31,6 @@ Pod::Spec.new do |s|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3as.a"
-    ss.xcconfig = {
-        "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
-    }
   end
   
   # 同步包
@@ -47,9 +44,6 @@ Pod::Spec.new do |s|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3cs.a"
-    ss.xcconfig = {
-      "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
-    }
   end
   
   # 异步paho需要的openssl依赖
@@ -69,33 +63,37 @@ Pod::Spec.new do |s|
   # 使用oc封装的libPahoC库
   s.subspec 'CocoaPaho' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}", "modulemap/cocoa_module.modulemap"
+    # modulemap只能配置给主库
+    s.module_map = "modulemap/cocoa_module.modulemap"
   end
   
   # 异步包+cocoa封装
   s.subspec 'Cocoa3a' do |ss|
     ss.dependency "libPahoC/3a"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
   end
  
   # 异步包+支持openssl+cocoa封装
   s.subspec 'Cocoa3as' do |ss|
     ss.dependency "libPahoC/3as"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+    ss.xcconfig = {
+      "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
+    }
   end
   
   # 同步包+cocoa封装
   s.subspec 'Cocoa3c' do |ss|
     ss.dependency "libPahoC/3c"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
   end
  
   # 同步包+支持openssl+cocoa封装
   s.subspec 'Cocoa3cs' do |ss|
     ss.dependency "libPahoC/3cs"
     ss.dependency "libPahoC/CocoaPaho"
-    s.module_map = "modulemap/cocoa_module.modulemap"
+    ss.xcconfig = {
+      "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
+    }
   end
 end
