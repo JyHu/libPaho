@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
   s.requires_arc = true
   s.osx.deployment_target = "10.12"
-  s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '$(s.version)' }
+  s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.2.0' }
   
   #
   # ============================================================================
