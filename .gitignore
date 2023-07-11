@@ -53,6 +53,7 @@ spacecommander/
 !default.perspectivev3
 xcuserdata/
 *.xcuserstate
+*.xcuserdatad
 
 ## Other
 *.moved-aside
