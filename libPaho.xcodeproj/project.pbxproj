@@ -380,8 +380,6 @@
 		C8473CFE2A5516CC004681B4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		C8473CFF2A5516CC004681B4 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		C8690A9D2A5C5E450054E97B /* cocoa_module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = cocoa_module.modulemap; sourceTree = "<group>"; };
-		C8690A9F2A5CFB590054E97B /* libPahoC.podspec.backup */ = {isa = PBXFileReference; lastKnownFileType = text; path = libPahoC.podspec.backup; sourceTree = "<group>"; };
-		C8690AA12A5CFE880054E97B /* libPahoC.podspec.backup2 */ = {isa = PBXFileReference; lastKnownFileType = text; path = libPahoC.podspec.backup2; sourceTree = "<group>"; };
 		C8690AA72A5D01CE0054E97B /* CocoaPaho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPaho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8690AA92A5D01CE0054E97B /* CocoaPaho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaPaho.h; sourceTree = "<group>"; };
 		C877DCE52A5526A600875C41 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -620,8 +618,6 @@
 			children = (
 				C877DCE52A5526A600875C41 /* README.md */,
 				C89FA92E2A4F1BFC0025A407 /* libPahoC.podspec */,
-				C8690A9F2A5CFB590054E97B /* libPahoC.podspec.backup */,
-				C8690AA12A5CFE880054E97B /* libPahoC.podspec.backup2 */,
 				C8A219FA2A56E16C0088B4ED /* openssl_platforms */,
 				C8A219FD2A56FD350088B4ED /* gen_paho.sh */,
 				C842230D2A52A93A00F145A7 /* gen_ssl.sh */,

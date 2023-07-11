@@ -12,6 +12,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/JyHu/libPaho.git", :tag => '0.1.0' }
   
+  #
+  # ============================================================================
+  #
+  #                         编译的openssl+libPahoC框架
+  #
+  # ============================================================================
+  #
+  
   # 异步包
   s.subspec '3a' do |ss|
     ss.source_files = "libPahoC/headers/*.h"
@@ -53,33 +61,38 @@ Pod::Spec.new do |s|
   #
   # ============================================================================
   #
+  #                         使用OC封装的libPahoC框架
+  #
+  # ============================================================================
+  #
   
+  # 使用oc封装的libPahoC库
   s.subspec 'CocoaPaho' do |ss|
     ss.source_files = "CocoaPaho/*.{h,m}", "modulemap/cocoa_module.modulemap"
   end
   
-  # 异步包
+  # 异步包+cocoa封装
   s.subspec 'Cocoa3a' do |ss|
     ss.dependency "libPahoC/3a"
     ss.dependency "libPahoC/CocoaPaho"
     s.module_map = "modulemap/cocoa_module.modulemap"
   end
  
-  # 异步包+支持openssl
+  # 异步包+支持openssl+cocoa封装
   s.subspec 'Cocoa3as' do |ss|
     ss.dependency "libPahoC/3as"
     ss.dependency "libPahoC/CocoaPaho"
     s.module_map = "modulemap/cocoa_module.modulemap"
   end
   
-  # 同步包
+  # 同步包+cocoa封装
   s.subspec 'Cocoa3c' do |ss|
     ss.dependency "libPahoC/3c"
     ss.dependency "libPahoC/CocoaPaho"
     s.module_map = "modulemap/cocoa_module.modulemap"
   end
  
-  # 同步包+支持openssl
+  # 同步包+支持openssl+cocoa封装
   s.subspec 'Cocoa3cs' do |ss|
     ss.dependency "libPahoC/3cs"
     ss.dependency "libPahoC/CocoaPaho"
