@@ -5,6 +5,8 @@
 //  Created by Jo on 2023/7/1.
 //
 
+#if PAHOC_ENABLE_SSL_CONNECTION
+
 #import <Foundation/Foundation.h>
 #import "PahoConstants.h"
 
@@ -36,3 +38,5 @@ typedef unsigned int (^PahoSSLPSKCallback)(const char *hint, char *identity, uns
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

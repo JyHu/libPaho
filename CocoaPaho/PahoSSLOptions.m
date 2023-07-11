@@ -5,6 +5,8 @@
 //  Created by Jo on 2023/7/1.
 //
 
+#if PAHOC_ENABLE_SSL_CONNECTION
+
 #import "PahoSSLOptions.h"
 #import "PahoSSLOptions+Private.h"
 #include "MQTTAsync.h"
@@ -140,3 +142,5 @@ unsigned int sslPSKCb(const char *hint, char *identity, unsigned int max_identit
 @end
 
 #undef SSL_STRING_OPTION
+
+#endif

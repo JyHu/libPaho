@@ -23,6 +23,9 @@ Pod::Spec.new do |s|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3as.a"
+    ss.xcconfig = {
+        "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
+    }
   end
   
   # 同步包
@@ -36,6 +39,9 @@ Pod::Spec.new do |s|
     ss.source_files = "libPahoC/headers/*.h"
     ss.dependency "libPahoC/ssl"
     ss.vendored_libraries = "libPahoC/libs/libpaho-mqtt3cs.a"
+    ss.xcconfig = {
+      "GCC_PREPROCESSOR_DEFINITIONS" => 'PAHOC_ENABLE_SSL_CONNECTION=1'
+    }
   end
   
   # 异步paho需要的openssl依赖

@@ -51,7 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, assign) int connectTimeout;
 @property (nonatomic, assign) int retryInterval;
+#if PAHOC_ENABLE_SSL_CONNECTION
 @property (nonatomic, strong) PahoSSLOptions *ssl;
+#endif
 @property (nonatomic, strong, nullable) NSArray <NSString *> *serverURIs;
 @property (nonatomic, assign) BOOL automaticReconnect;
 @property (nonatomic, assign) int minRetryInterval;

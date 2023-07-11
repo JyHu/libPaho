@@ -80,12 +80,14 @@
         return rc;
     }
     
+#if PAHOC_ENABLE_SSL_CONNECTION
     if (self.ssl) {
         MQTTAsync_SSLOptions sslOpt = [self.ssl sslOptions];
         self->m_connectOpts.ssl = &sslOpt;
     } else {
         self->m_connectOpts.ssl = NULL;
     }
+#endif
         
     rc = MQTTAsync_connect(self->m_mqttAsyncHandle, &self->m_connectOpts);
     
