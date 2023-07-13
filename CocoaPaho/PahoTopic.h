@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PahoTopic : NSObject
 
-@property (nonatomic, copy) NSString *topic;
-@property (nonatomic, assign) PahoQOS qos;
+@property (nonatomic, copy, readonly) NSString *topic;
+@property (nonatomic, assign, readonly) PahoQOS qos;
 
+- (instancetype)initWithTopic:(NSString *)topic;
 - (instancetype)initWithTopic:(NSString *)topic qos:(PahoQOS)qos;
 
 @end

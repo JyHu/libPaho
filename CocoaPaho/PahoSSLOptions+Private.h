@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PahoSSLOptions ()
 
+#if PAHOC_ENABLE_SSL_CONNECTION
 - (MQTTAsync_SSLOptions)sslOptions;
-
+#endif
 @end
 
 NS_ASSUME_NONNULL_END

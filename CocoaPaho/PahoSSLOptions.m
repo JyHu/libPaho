@@ -5,13 +5,13 @@
 //  Created by Jo on 2023/7/1.
 //
 
-#if PAHOC_ENABLE_SSL_CONNECTION
-
 #import "PahoSSLOptions.h"
 #import "PahoSSLOptions+Private.h"
 #include "MQTTAsync.h"
 
-@implementation PahoSSLOptions {
+@implementation PahoSSLOptions
+#if PAHOC_ENABLE_SSL_CONNECTION
+{
     MQTTAsync_SSLOptions sslOpts;
 }
 
@@ -139,8 +139,9 @@ unsigned int sslPSKCb(const char *hint, char *identity, unsigned int max_identit
     return options.sslPSKCallback(hint, identity, max_psk_len, psk, max_psk_len);
 }
 
-@end
-
 #undef SSL_STRING_OPTION
 
 #endif
+
+@end
+

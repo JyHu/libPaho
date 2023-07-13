@@ -114,7 +114,7 @@
     options.context = (__bridge void *)(self);
     options.onSuccess5 = &onSubscribeSuccess;
     options.onFailure5 = &onSubscribeFailue;
-    
+    printf("===> %s, topic: %s\n", NSStringFromSelector(_cmd).UTF8String, topic.UTF8String);
     return MQTTAsync_subscribe(self->m_mqttAsyncHandle, topic.UTF8String, qos, &options);
 }
 
@@ -134,6 +134,8 @@
         
         qoss[index] = topic.qos;
         tpChrs[index] = strdup(topic.topic.UTF8String);
+        
+        printf("===> %s, topic: %s\n", NSStringFromSelector(_cmd).UTF8String, topic.topic.UTF8String);
     }
     
     int rc = MQTTAsync_subscribeMany(self->m_mqttAsyncHandle, count, tpChrs, qoss, &respOpts);
@@ -176,7 +178,7 @@
     return rc;
 }
 
-- (PahoReturnCode)publish:(PahoPublishedMessage *)message properties:(PahoProperties *)properties {
+- (PahoReturnCode)publish:(PahoPublishedMessage *)message properties:(PahoProperties *)properties token:(nonnull int *)token {
     MQTTAsync_message pubmsg = MQTTAsync_message_initializer;
     
     MQTTLenString lenString = MQTTLenStringFromJSONObject(message.payload);
@@ -209,6 +211,8 @@
     responseOpt.context = (__bridge void *)(self);
     
     int rc = MQTTAsync_sendMessage(self->m_mqttAsyncHandle, message.topic.UTF8String, &pubmsg, &responseOpt);
+    
+    *token = responseOpt.token;
     
     MQTTProperties_free(&pubmsg.properties);
     

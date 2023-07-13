@@ -40,8 +40,6 @@
         if (msg->properties.count > 0) {
             self.properties = [[PahoProperties alloc] initWithProperties:msg->properties];
         }
-        
-        NSLog(@"%@", self);
     }
     
     return self;
