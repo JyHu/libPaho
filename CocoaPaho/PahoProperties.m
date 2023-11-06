@@ -45,13 +45,21 @@
             
         case MQTTPROPERTY_CODE_RESPONSE_TOPIC: {
             self.responseTopic = NSStringFromMQTTLenString(property.value.data);
-            PahoAssert(self.responseTopic != nil, @"MQTTPROPERTY_CODE_RESPONSE_TOPIC is nil")
+#if DEBUG
+            if(isatty(STDOUT_FILENO)) {
+                PahoAssert(self.responseTopic != nil, @"MQTTPROPERTY_CODE_RESPONSE_TOPIC is nil")
+            }
+#endif
             break;
         }
             
         case MQTTPROPERTY_CODE_CORRELATION_DATA: {
             self.correlation = NSStringFromMQTTLenString(property.value.data);
-            PahoAssert(self.correlation != nil, @"MQTTPROPERTY_CODE_CORRELATION_DATA is nil")
+#if DEBUG
+            if(isatty(STDOUT_FILENO)) {
+                PahoAssert(self.correlation != nil, @"MQTTPROPERTY_CODE_CORRELATION_DATA is nil")
+            }
+#endif
             break;
         }
             
@@ -128,7 +136,6 @@
             NSString *value = NSStringFromMQTTLenString(property.value.value);
             
             if (data == nil || value == nil) {
-//                PahoAssert(NO, @"MQTTPROPERTY_CODE_USER_PROPERTY key and value is nil")
                 return;
             }
             

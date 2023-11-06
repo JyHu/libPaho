@@ -54,6 +54,25 @@ function ARCH_BUILD {
     cd $SSL_SOURCE_FOLD
     
     #
+    # Open SSL 编译命令参数列表
+    #
+    #   * --prefix: 指定 OpenSSL 的安装路径。
+    #   * no-shared: 禁用共享库的构建，只编译静态库。
+    #   * no-asm: 禁用汇编优化。
+    #   * --openssldir: 指定 OpenSSL 的配置文件目录。
+    #   * -mmacosx-version-min: 指定 macOS 的最低版本。
+    #   * no-doc: 禁用文档生成。
+    #   * no-ssl2: 禁用 SSLv2 协议支持。
+    #   * no-ssl3: 禁用 SSLv3 协议支持。
+    #   * no-tls1: 禁用 TLSv1 协议支持。
+    #   * no-tls1_1: 禁用 TLSv1.1 协议支持。
+    #   * no-tls1_2: 禁用 TLSv1.2 协议支持。
+    #   * no-tls1_3: 禁用 TLSv1.3 协议支持。
+    #   * no-zlib: 禁用 zlib 压缩支持。
+    #   * no-hw: 禁用加密硬件支持。
+    #   * no-threads: 禁用多线程支持。
+    #
+    #
     # 设置一下编译选项，其中需要注意 no-asm 参数。
     #
     # 在编译 OpenSSL 时，no-asm 是一个配置选项，用于禁用特定平台的汇编优化。
@@ -74,7 +93,7 @@ function ARCH_BUILD {
     # 综上所述，使用 no-asm 配置选项可以在编译 OpenSSL 时禁用汇编优化。这可能是出于可移植性或
     # 平台兼容性的考虑。但请注意，禁用汇编优化可能会导致性能下降。在实际使用中，您可以根据您的需
     # 求和目标平台选择是否启用或禁用 no-asm 选项。
-    ./Configure $1 --prefix=$SSL_BUILD_FOLD/$2 no-shared no-asm
+    ./Configure $1 --prefix=$SSL_BUILD_FOLD/$2 no-shared no-asm no-doc -mmacosx-version-min=10.12
     
     # 编译
     make

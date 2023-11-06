@@ -41,6 +41,7 @@ cmake -DPAHO_BUILD_SHARED=FALSE             \
     -DOPENSSL_LIBRARIES="$CUR_FOLDER/libssl/lib"    \
     -DCMAKE_BUILD_TYPE=Release                      \
     -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"        \
+    -DCMAKE_OSX_DEPLOYMENT_TARGET="10.12"           \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON ..
 
 # 开始打包

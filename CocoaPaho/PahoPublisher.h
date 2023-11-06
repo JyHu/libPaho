@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL retained;
 @property (nonatomic, strong) NSDictionary *payload;
 
+- (instancetype)initWithTopic:(NSString *)topic;
+- (instancetype)initWithTopic:(NSString *)topic qos:(PahoQOS)qos;
+
 @end
 
 NS_ASSUME_NONNULL_END

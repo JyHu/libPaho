@@ -206,6 +206,12 @@
 		C8A21B322A583C240088B4ED /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = C8473C592A5456FD004681B4 /* Tree.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C8A21B332A583C240088B4ED /* utf-8.h in Headers */ = {isa = PBXBuildFile; fileRef = C8473C6B2A5456FD004681B4 /* utf-8.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C8A21B342A583C240088B4ED /* WebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = C8473C532A5456FD004681B4 /* WebSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C8E340452A7EA31400F388C3 /* CocoaPahoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E340442A7EA31400F388C3 /* CocoaPahoTests.m */; };
+		C8E340462A7EA31400F388C3 /* CocoaPaho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8690AA72A5D01CE0054E97B /* CocoaPaho.framework */; };
+		C8E3404E2A7EA5F200F388C3 /* PahoLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = C8E3404C2A7EA5F200F388C3 /* PahoLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8E3404F2A7EA5F200F388C3 /* PahoLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3404D2A7EA5F200F388C3 /* PahoLogger.m */; };
+		C8F0907D2AB8317A00CA8E75 /* PahoTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = C8F0907B2AB8317A00CA8E75 /* PahoTrace.h */; };
+		C8F0907E2AB8317A00CA8E75 /* PahoTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F0907C2AB8317A00CA8E75 /* PahoTrace.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +235,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C872604D2A5D549800EE8F56;
 			remoteInfo = libssl;
+		};
+		C8E340472A7EA31400F388C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C89FA8942A4F04CE0025A407 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8690AA62A5D01CE0054E97B;
+			remoteInfo = CocoaPaho;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -456,6 +469,12 @@
 		C8A21A732A583B3A0088B4ED /* PahoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoResponse.h; sourceTree = "<group>"; };
 		C8A21A742A583B3A0088B4ED /* PahoMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PahoMessages.h; sourceTree = "<group>"; };
 		C8A21A752A583B3A0088B4ED /* PahoSSLOptions+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PahoSSLOptions+Private.h"; sourceTree = "<group>"; };
+		C8E340422A7EA31400F388C3 /* CocoaPahoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPahoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E340442A7EA31400F388C3 /* CocoaPahoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaPahoTests.m; sourceTree = "<group>"; };
+		C8E3404C2A7EA5F200F388C3 /* PahoLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PahoLogger.h; sourceTree = "<group>"; };
+		C8E3404D2A7EA5F200F388C3 /* PahoLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PahoLogger.m; sourceTree = "<group>"; };
+		C8F0907B2AB8317A00CA8E75 /* PahoTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PahoTrace.h; sourceTree = "<group>"; };
+		C8F0907C2AB8317A00CA8E75 /* PahoTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PahoTrace.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +501,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C87260E32A5D54F200EE8F56 /* libssl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E3403F2A7EA31400F388C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E340462A7EA31400F388C3 /* CocoaPaho.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +721,7 @@
 				C8A21A602A583B3A0088B4ED /* CocoaPaho */,
 				C8473C732A5516CC004681B4 /* libssl */,
 				C8473C4A2A5456FD004681B4 /* libPahoC */,
+				C8E340432A7EA31400F388C3 /* CocoaPahoTests */,
 				C89FA8A02A4F04E10025A407 /* Products */,
 				C87260432A5D545200EE8F56 /* Frameworks */,
 			);
@@ -705,6 +733,7 @@
 				C89FA9B32A5079690025A407 /* libPahoC.framework */,
 				C8690AA72A5D01CE0054E97B /* CocoaPaho.framework */,
 				C872604E2A5D549800EE8F56 /* libssl.framework */,
+				C8E340422A7EA31400F388C3 /* CocoaPahoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -787,8 +816,20 @@
 				C8A21A752A583B3A0088B4ED /* PahoSSLOptions+Private.h */,
 				C8A21A672A583B3A0088B4ED /* PahoTopic.h */,
 				C8A21A6E2A583B3A0088B4ED /* PahoTopic.m */,
+				C8E3404C2A7EA5F200F388C3 /* PahoLogger.h */,
+				C8E3404D2A7EA5F200F388C3 /* PahoLogger.m */,
+				C8F0907B2AB8317A00CA8E75 /* PahoTrace.h */,
+				C8F0907C2AB8317A00CA8E75 /* PahoTrace.m */,
 			);
 			path = CocoaPaho;
+			sourceTree = "<group>";
+		};
+		C8E340432A7EA31400F388C3 /* CocoaPahoTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E340442A7EA31400F388C3 /* CocoaPahoTests.m */,
+			);
+			path = CocoaPahoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -804,7 +845,9 @@
 				C87260ED2A5D552500EE8F56 /* PahoMessages.h in Headers */,
 				C87260F82A5D552500EE8F56 /* PahoResponse.h in Headers */,
 				C87260E82A5D552500EE8F56 /* PahoConstants.h in Headers */,
+				C8E3404E2A7EA5F200F388C3 /* PahoLogger.h in Headers */,
 				C87260F72A5D552500EE8F56 /* PahoSSLOptions.h in Headers */,
+				C8F0907D2AB8317A00CA8E75 /* PahoTrace.h in Headers */,
 				C87260EB2A5D552500EE8F56 /* CocoaPaho.h in Headers */,
 				C87260F92A5D552500EE8F56 /* PahoPublisher.h in Headers */,
 				C87260EC2A5D552500EE8F56 /* PahoHelper.h in Headers */,
@@ -1061,6 +1104,24 @@
 			productReference = C89FA9B32A5079690025A407 /* libPahoC.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C8E340412A7EA31400F388C3 /* CocoaPahoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E3404B2A7EA31400F388C3 /* Build configuration list for PBXNativeTarget "CocoaPahoTests" */;
+			buildPhases = (
+				C8E3403E2A7EA31400F388C3 /* Sources */,
+				C8E3403F2A7EA31400F388C3 /* Frameworks */,
+				C8E340402A7EA31400F388C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E340482A7EA31400F388C3 /* PBXTargetDependency */,
+			);
+			name = CocoaPahoTests;
+			productName = CocoaPahoTests;
+			productReference = C8E340422A7EA31400F388C3 /* CocoaPahoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1077,6 +1138,9 @@
 						CreatedOnToolsVersion = 14.1;
 					};
 					C89FA9B22A5079690025A407 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					C8E340412A7EA31400F388C3 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -1097,6 +1161,7 @@
 				C89FA9B22A5079690025A407 /* libPahoC */,
 				C8690AA62A5D01CE0054E97B /* CocoaPaho */,
 				C872604D2A5D549800EE8F56 /* libssl */,
+				C8E340412A7EA31400F388C3 /* CocoaPahoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1123,6 +1188,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8E340402A7EA31400F388C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1135,6 +1207,8 @@
 				C87260F12A5D552500EE8F56 /* PahoSSLOptions.m in Sources */,
 				C87260F42A5D552500EE8F56 /* PahoResponse.m in Sources */,
 				C87260F22A5D552500EE8F56 /* PahoClient.m in Sources */,
+				C8F0907E2AB8317A00CA8E75 /* PahoTrace.m in Sources */,
+				C8E3404F2A7EA5F200F388C3 /* PahoLogger.m in Sources */,
 				C87260F62A5D552500EE8F56 /* PahoHelper.m in Sources */,
 				C87260EE2A5D552500EE8F56 /* PahoMessages.m in Sources */,
 				C87260EF2A5D552500EE8F56 /* PahoPublisher.m in Sources */,
@@ -1155,6 +1229,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8E3403E2A7EA31400F388C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E340452A7EA31400F388C3 /* CocoaPahoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1172,6 +1254,11 @@
 			isa = PBXTargetDependency;
 			target = C872604D2A5D549800EE8F56 /* libssl */;
 			targetProxy = C87261042A5D556800EE8F56 /* PBXContainerItemProxy */;
+		};
+		C8E340482A7EA31400F388C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8690AA62A5D01CE0054E97B /* CocoaPaho */;
+			targetProxy = C8E340472A7EA31400F388C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1246,7 +1333,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1330,7 +1417,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1721,6 +1808,137 @@
 			};
 			name = Release;
 		};
+		C8E340492A7EA31400F388C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = EHNB49T236;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auu.CocoaPahoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8E3404A2A7EA31400F388C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EHNB49T236;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auu.CocoaPahoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1756,6 +1974,15 @@
 			buildConfigurations = (
 				C89FA9B82A5079690025A407 /* Debug */,
 				C89FA9B92A5079690025A407 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E3404B2A7EA31400F388C3 /* Build configuration list for PBXNativeTarget "CocoaPahoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E340492A7EA31400F388C3 /* Debug */,
+				C8E3404A2A7EA31400F388C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

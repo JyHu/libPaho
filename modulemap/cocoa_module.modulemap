@@ -7,5 +7,6 @@ module CocoaPaho {
     header "PahoResponse.h"
     header "PahoSSLOptions.h"
     header "PahoTopic.h"
+    header "PahoTrace.h"
     export *
 }

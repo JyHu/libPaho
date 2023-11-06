@@ -15,6 +15,8 @@
 #import "PahoResponse.h"
 #import "PahoSSLOptions.h"
 #import "PahoTopic.h"
+#import "PahoLogger.h"
+#import "PahoTrace.h"
 
 //! Project version number for CocoaPaho.
 FOUNDATION_EXPORT double CocoaPahoVersionNumber;

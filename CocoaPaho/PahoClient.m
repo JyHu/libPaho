@@ -10,17 +10,22 @@
 #import "PahoMessages+Private.h"
 #import "PahoResponse+Private.h"
 #import "PahoSSLOptions+Private.h"
+#import "PahoLogger.h"
 #include "MQTTAsync.h"
 #include "MQTTProperties.h"
 
 @interface PahoClient()
 
+/// 连接对象的唯一ID
 @property (nonatomic, copy, readwrite) NSString *clientID;
 
 @end
 
 @implementation PahoClient {
+    /// Paho中MQTT的连接对象，用于执行MQTT相关连接、订阅、请求等实际操作的对象
     MQTTAsync m_mqttAsyncHandle;
+    
+    /// 连接MQTT时的参数列表，在发起连接的时候设置到连接过程中
     MQTTAsync_connectOptions m_connectOpts;
 }
 
@@ -30,17 +35,31 @@
 
 - (instancetype)initWithClientID:(NSString *)clientID {
     if (self = [super init]) {
+        
+        /// https://github.com/eclipse/paho.mqtt.c/issues/1378
+        /// @chengxin
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            MQTTAsync_init_options options = MQTTAsync_init_options_initializer;
+            MQTTAsync_global_init(&options);
+        });
+        
+        self->m_mqttAsyncHandle = NULL;
         self.clientID = clientID;
+        self.category = @"Default";
         [self setupInitialize];
+        PAHO_INFO(self.category, clientID, @"Initial Client.");
     }
     
     return self;
 }
 
 - (void)dealloc {
+    PAHO_INFO(self.category, self.clientID, @"Client Dealloc.");
     [self disconnect];
 }
 
+/// 在对象初始化的时候将连接参数也初始化一下。
 - (void)setupInitialize {
     MQTTAsync_connectOptions connectedOpts = MQTTAsync_connectOptions_initializer5;
     self->m_connectOpts = connectedOpts;
@@ -52,6 +71,12 @@
 #pragma mark - actions
 
 - (PahoReturnCode)connectWithUsername:(NSString *)username password:(NSString *)password {
+    return [self connectWithUsername:username password:password userProperties:nil];
+}
+
+- (PahoReturnCode)connectWithUsername:(NSString *)username
+                             password:(NSString *)password
+                       userProperties:(nullable NSDictionary<NSString *,id> *)userProperties {
     [self disconnect];
     
     self.username = username;
@@ -63,6 +88,7 @@
     
     if (rc != MQTTASYNC_SUCCESS) {
         MQTTAsync_destroy(&self->m_mqttAsyncHandle);
+        PAHO_INFO(self.category, self.clientID, @"Connect failed at creation.");
         return rc;
     }
     
@@ -70,6 +96,7 @@
     
     if (rc != MQTTASYNC_SUCCESS) {
         MQTTAsync_destroy(&self->m_mqttAsyncHandle);
+        PAHO_INFO(self.category, self.clientID, @"Connect failed at set connected callback.");
         return rc;
     }
     
@@ -77,24 +104,55 @@
     
     if (rc != MQTTASYNC_SUCCESS) {
         MQTTAsync_destroy(&self->m_mqttAsyncHandle);
+        PAHO_INFO(self.category, self.clientID, @"Connect failed at set callbacks.");
         return rc;
     }
     
+    /// 用于多版本兼容，在podspec中设置到工程中的宏，为同时支持openssl和不支持openssl的版本坐兼容
 #if PAHOC_ENABLE_SSL_CONNECTION
+    MQTTAsync_SSLOptions sslOpt = MQTTAsync_SSLOptions_initializer;
     if (self.ssl) {
-        MQTTAsync_SSLOptions sslOpt = [self.ssl sslOptions];
+        sslOpt = [self.ssl sslOptions];
         self->m_connectOpts.ssl = &sslOpt;
     } else {
         self->m_connectOpts.ssl = NULL;
     }
 #endif
+    
+    MQTTProperties properties = MQTTProperties_initializer;
+    
+    /// 如果用户属性为空，那么直接清空缓存的所有用户属性
+    if (userProperties == nil || userProperties.count == 0) {
+        PAHO_INFO(self.category, self.clientID, @"Clear connect properties.");
+    } else {
+        for (NSString *propertyKey in userProperties) {
+            NSString *propertyValue = [userProperties objectForKey:propertyKey];
+            if (![propertyValue isKindOfClass:[NSString class]]) {
+                propertyValue = [NSString stringWithFormat:@"%@", propertyValue];
+            }
+            
+            MQTTProperty property;
+            property.identifier = MQTTPROPERTY_CODE_USER_PROPERTY;
+            property.value.data = MQTTLenStringFromNSString(propertyKey);
+            property.value.value = MQTTLenStringFromNSString(propertyValue);
+            
+            MQTTProperties_add(&properties, &property);
+        }
         
+        self->m_connectOpts.connectProperties = &properties;
+        PAHO_INFO(self.category, self.clientID, @"Fillup connect properties: %@.", userProperties);
+    }
+
     rc = MQTTAsync_connect(self->m_mqttAsyncHandle, &self->m_connectOpts);
+    
+    MQTTProperties_free(&properties);
+    self->m_connectOpts.connectProperties = NULL;
     
     if (rc != MQTTASYNC_SUCCESS) {
         MQTTAsync_destroy(&self->m_mqttAsyncHandle);
+        PAHO_INFO(self.category, self.clientID, @"Connect failed at connect.");
     }
-    
+
     return rc;
 }
 
@@ -107,6 +165,8 @@
     disconnOpt.context = (__bridge void *)(self);
     MQTTAsync_disconnect(self->m_mqttAsyncHandle, &disconnOpt);
     MQTTAsync_destroy(&self->m_mqttAsyncHandle);
+
+    PAHO_INFO(self.category, self.clientID, @"Performed disconnect action.");
 }
 
 - (PahoReturnCode)subscribe:(NSString *)topic qos:(PahoQOS)qos {
@@ -114,7 +174,7 @@
     options.context = (__bridge void *)(self);
     options.onSuccess5 = &onSubscribeSuccess;
     options.onFailure5 = &onSubscribeFailue;
-    printf("===> %s, topic: %s\n", NSStringFromSelector(_cmd).UTF8String, topic.UTF8String);
+    PAHO_INFO(self.category, self.clientID, @"Topic: %@, qos: %d", topic, qos);
     return MQTTAsync_subscribe(self->m_mqttAsyncHandle, topic.UTF8String, qos, &options);
 }
 
@@ -134,8 +194,6 @@
         
         qoss[index] = topic.qos;
         tpChrs[index] = strdup(topic.topic.UTF8String);
-        
-        printf("===> %s, topic: %s\n", NSStringFromSelector(_cmd).UTF8String, topic.topic.UTF8String);
     }
     
     int rc = MQTTAsync_subscribeMany(self->m_mqttAsyncHandle, count, tpChrs, qoss, &respOpts);
@@ -146,6 +204,8 @@
     
     free(tpChrs);
     
+    PAHO_INFO(self.category, self.clientID, @"topics: %@", topics);
+    
     return rc;
 }
 
@@ -154,6 +214,9 @@
     unsubOpt.onSuccess5 = &onUnsubscribeSuccess;
     unsubOpt.onFailure5 = &onUnsubscribeFailue;
     unsubOpt.context = (__bridge void *)(self);
+    
+    PAHO_INFO(self.category, self.clientID, @"topic: %@", topic);
+    
     return MQTTAsync_unsubscribe(self->m_mqttAsyncHandle, topic.UTF8String, &unsubOpt);
 }
 
@@ -174,6 +237,8 @@
     }
     
     free(tpChrs);
+    
+    PAHO_INFO(self.category, self.clientID, @"%@", topics);
     
     return rc;
 }
@@ -215,6 +280,8 @@
     *token = responseOpt.token;
     
     MQTTProperties_free(&pubmsg.properties);
+    
+    PAHO_DEBUG(self.category, self.clientID, @"message : %@", message);
     
     return rc;
 }
@@ -313,12 +380,24 @@
     _willProperties = willProperties;
 }
 
+- (BOOL)isConnected {
+    if (self -> m_mqttAsyncHandle == NULL) { return NO; }
+    return MQTTAsync_isConnected(self->m_mqttAsyncHandle) == 1;
+}
+
 #pragma mark - C methods
 
+#define __CHECK_CLIENT__                \
+    if (context == NULL) { return; }    \
+    PahoClient *client = (__bridge PahoClient *)context;    \
+    if (client == nil || ![client isKindOfClass:[PahoClient class]]) { return; } \
+
+
+/// 连接成功的回调方法
 void onConnectionConnected(void *context, char* cause) {
-    if (context == NULL) { return; }
-    PahoClient *client = (__bridge PahoClient *)context;
-    if (client == nil) { return; }
+    __CHECK_CLIENT__
+    
+    PAHO_INFO(client.category, client.clientID, @"C connected cause: %s", cause);
     
     NSString *causeStr = nil;
     if (cause != NULL) {
@@ -328,10 +407,11 @@ void onConnectionConnected(void *context, char* cause) {
     [client.delegate pahoClientDidConnected:client cause:causeStr];
 }
 
+/// 连接断开的回调方法
 void onConnectionLost(void *context, char *cause) {
-    if (context == NULL) { return; }
-    PahoClient *client = (__bridge PahoClient *)context;
-    if (client == nil) { return; }
+    __CHECK_CLIENT__
+    
+    PAHO_INFO(client.category, client.clientID, @"C connection lost cause: %s", cause);
     
     NSString *causeStr = nil;
     if (cause != NULL) {
@@ -341,15 +421,18 @@ void onConnectionLost(void *context, char *cause) {
     [client.delegate pahoClientDidDisconnected:client cause:causeStr];
 }
 
+/// 在收到mqtt消息的回调方法
 int onMessageArrived(void *context, char *topicName, int topicLen, MQTTAsync_message *msg) {
     if (context == NULL) { return 1; }
     PahoClient *client = (__bridge PahoClient *)context;
-    if (client == nil) { return 1; }
+    if (client == nil || ![client isKindOfClass:[PahoClient class]]) { return 1; }
+    
+    PAHO_DEBUG(client.category, client.clientID, @"C received message topic: %s", topicName);
     
     PahoMessage *message = [[PahoMessage alloc] initWithMessage:msg];
     NSString *topic = [NSString stringWithUTF8String:topicName];
     
-    if ([client.delegate pahoClient:client didReceiveMessage:message onTopic:topic]) {
+    if (client.delegate == nil || [client.delegate pahoClient:client didReceiveMessage:message onTopic:topic]) {
         MQTTAsync_freeMessage(&msg);
         return 1;
     }
@@ -357,29 +440,28 @@ int onMessageArrived(void *context, char *topicName, int topicLen, MQTTAsync_mes
     return 0;
 }
 
-#define __PAHO_ASYNC_ACTION__(METHOD_NAME, PAHO_ACTION)                                         \
+#define __PAHO_ASYNC_ACTION__(PAHO_LOG_METHOD, METHOD_NAME, PAHO_ACTION)                                         \
     void on##METHOD_NAME##Success(void* context, MQTTAsync_successData5* response) {            \
-        if (context == NULL) { return; }                                                        \
-        PahoClient *client = (__bridge PahoClient *)context;                                    \
-        if (client == nil || ![client isKindOfClass:[PahoClient class]]) { return; }            \
+        __CHECK_CLIENT__                                                                        \
+        PAHO_LOG_METHOD(client.category, client.clientID, @"C successed on %@ ", NSStringFromPahoAction(PAHO_ACTION));          \
         PahoSuccessedMessage *sucMsg = [[PahoSuccessedMessage alloc] initWithMessage5:response action:PAHO_ACTION];\
         [client.delegate pahoClient:client onAction:PAHO_ACTION success:sucMsg failed:nil];     \
     }                                                                                           \
                                                                                                 \
     void on##METHOD_NAME##Failue(void* context,  MQTTAsync_failureData5* response) {            \
-        if (context == NULL) { return; }                                                        \
-        PahoClient *client = (__bridge PahoClient *)context;                                    \
-        if (client == nil || ![client isKindOfClass:[PahoClient class]]) { return; }            \
+        __CHECK_CLIENT__                                                                        \
         PahoFailedMessage *faiMsg = [[PahoFailedMessage alloc] initWithMessage5:response action:PAHO_ACTION];      \
+        PAHO_WARN(client.category, client.clientID, @"C failed on %@ , response: %@", NSStringFromPahoAction(PAHO_ACTION), faiMsg);             \
         [client.delegate pahoClient:client onAction:PAHO_ACTION success:nil failed:faiMsg];     \
     }
 
-__PAHO_ASYNC_ACTION__(Connection, PahoActionConnection)
-__PAHO_ASYNC_ACTION__(Subscribe, PahoActionSubscribe)
-__PAHO_ASYNC_ACTION__(Unsubscribe, PahoActionUnsubscribe)
-__PAHO_ASYNC_ACTION__(Publish, PahoActionPublish)
-__PAHO_ASYNC_ACTION__(Disconnect, PahoActionDisconnect)
+__PAHO_ASYNC_ACTION__(PAHO_INFO, Connection, PahoActionConnection)
+__PAHO_ASYNC_ACTION__(PAHO_DEBUG, Subscribe, PahoActionSubscribe)
+__PAHO_ASYNC_ACTION__(PAHO_DEBUG, Unsubscribe, PahoActionUnsubscribe)
+__PAHO_ASYNC_ACTION__(PAHO_DEBUG, Publish, PahoActionPublish)
+__PAHO_ASYNC_ACTION__(PAHO_INFO, Disconnect, PahoActionDisconnect)
 
 #undef __PAHO_ASYNC_ACTION__
+#undef __CHECK_CLIENT__
 
 @end

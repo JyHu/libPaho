@@ -16,13 +16,13 @@ NSString * _Nullable NSStringFromMQTTLenString(MQTTLenString lenStr) {
         return nil;
     }
     
-    if (lenStr.len > strlen(lenStr.data)) {
+    if (lenStr.len != strlen(lenStr.data)) {
         return nil;
     }
     
     char *mystr = malloc(lenStr.len + 1);
     mystr[lenStr.len] = '\0';
-    strncpy(mystr, lenStr.data, lenStr.len);
+    memcpy(mystr, lenStr.data, lenStr.len);
     
     NSString *tarStr = [NSString stringWithUTF8String:mystr];
     
@@ -154,6 +154,7 @@ NSString *NSStringFromPahoAction(PahoAction action) {
         case PahoActionUnsubscribe: return @"Unsubscribe";
         case PahoActionPublish: return @"Publish";
         case PahoActionDisconnect: return @"Disconnect";
+        case PahoActionConnection: return @"Connection";
         default: return @"";
     }
 }

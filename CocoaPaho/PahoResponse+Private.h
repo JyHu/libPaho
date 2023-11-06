@@ -14,13 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PahoSuccessedMessage()
 
-- (instancetype)initWithMessage5:(MQTTAsync_successData5 *)msg action:(PahoAction)action;
+- (instancetype)initWithMessage5:(MQTTAsync_successData5 *)msg
+                          action:(PahoAction)action;
 
 @end
 
 @interface PahoFailedMessage()
 
-- (instancetype)initWithMessage5:(MQTTAsync_failureData5 *)msg action:(PahoAction)action;
+- (instancetype)initWithMessage5:(MQTTAsync_failureData5 *)msg
+                          action:(PahoAction)action;
 
 @end
 

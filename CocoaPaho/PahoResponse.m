@@ -70,4 +70,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"[AsyncFailed] Action: %ld, Token: %ld, Code: %ld, Reason: %ld, Message: %@", self.action, self.token, self.code, self.reasonCode, self.message];
+}
+
 @end

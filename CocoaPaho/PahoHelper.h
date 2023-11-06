@@ -29,6 +29,7 @@ MQTTLenString MQTTLenStringFromJSONObject(id jsonObj);
 /// 将C语言中的reasonCode枚举转换为iOS/macOS中的枚举
 PahoReasonCode PahoReasonCodeFromMQTTResonCode(enum MQTTReasonCodes reasonCode);
 
+/// Paho操作事件的名称，主要用于调试
 NSString *NSStringFromPahoAction(PahoAction action);
 
 NS_ASSUME_NONNULL_END

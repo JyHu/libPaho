@@ -13,25 +13,29 @@ typedef NS_ENUM(NSUInteger, PahoContentType) {
     PahoContentTypePB,
 };
 
+/// 消息服务质量
+/// https://www.emqx.com/zh/blog/introduction-to-mqtt-qos
 typedef NS_ENUM(int, PahoQOS) {
-    PahoQOS0,
-    PahoQOS1,
-    PahoQOS2,
+    PahoQOS0,   /// 最多交付一次
+    PahoQOS1,   /// 至少交付一次
+    PahoQOS2,   /// 只交付一次
 };
 
+/// Paho操作事件
 typedef NS_ENUM(NSUInteger, PahoAction) {
-    PahoActionConnection,
-    PahoActionSubscribe,
-    PahoActionUnsubscribe,
-    PahoActionPublish,
-    PahoActionDisconnect
+    PahoActionConnection,   /// 发起连接
+    PahoActionSubscribe,    /// 订阅
+    PahoActionUnsubscribe,  /// 取消订阅
+    PahoActionPublish,      /// 发布消息
+    PahoActionDisconnect,   /// 断开连接
 };
 
+/// The SSL/TLS version to use.
 typedef NS_ENUM(int, PahoSSLVersion) {
-    PahoSSLVersionDefault = 0,
-    PahoSSLVersionTLS_1_0 = 1,
-    PahoSSLVersionTLS_1_1 = 2,
-    PahoSSLVersionTLS_1_2 = 3,
+    PahoSSLVersionDefault = 0,  /// MQTT_SSL_VERSION_DEFAULT
+    PahoSSLVersionTLS_1_0 = 1,  /// MQTT_SSL_VERSION_TLS_1_0
+    PahoSSLVersionTLS_1_1 = 2,  /// MQTT_SSL_VERSION_TLS_1_1
+    PahoSSLVersionTLS_1_2 = 3,  /// MQTT_SSL_VERSION_TLS_1_2
 };
 
 /// 在paho框架中 MQTTReasonCodes 的以下三个枚举的值都是0，
@@ -86,103 +90,79 @@ typedef NS_ENUM(NSInteger, PahoReasonCode) {
 };
 
 typedef NS_ENUM(int, PahoReturnCode) {
-    /**
-     * Return code: No error. Indicates successful completion of an MQTT client
-     * operation.
-     */
+    /// Return code: No error. Indicates successful completion of an MQTT client
+    /// operation.
     PahoReturnCodeSUCCESS = 0,
-    /**
-     * Return code: A generic error code indicating the failure of an MQTT client
-     * operation.
-     */
+    
+    /// Return code: A generic error code indicating the failure of an MQTT client
+    /// operation.
     PahoReturnCodeFAILURE = -1,
 
-    /* error code -2 is MQTTAsync_PERSISTENCE_ERROR */
-
+    /// error code -2 is MQTTAsync_PERSISTENCE_ERROR
     PahoReturnCodePERSISTENCE_ERROR = -2,
 
-    /**
-     * Return code: The client is disconnected.
-     */
+    /// Return code: The client is disconnected.
     PahoReturnCodeDISCONNECTED = -3,
-    /**
-     * Return code: The maximum number of messages allowed to be simultaneously
-     * in-flight has been reached.
-     */
+    
+    /// Return code: The maximum number of messages allowed to be simultaneously
+    /// in-flight has been reached.
     PahoReturnCodeMAX_MESSAGES_INFLIGHT = -4,
-    /**
-     * Return code: An invalid UTF-8 string has been detected.
-     */
+    
+    /// Return code: An invalid UTF-8 string has been detected.
     PahoReturnCodeBAD_UTF8_STRING = -5,
-    /**
-     * Return code: A NULL parameter has been supplied when this is invalid.
-     */
+    
+    /// Return code: A NULL parameter has been supplied when this is invalid.
     PahoReturnCodeNULL_PARAMETER = -6,
-    /**
-     * Return code: The topic has been truncated (the topic string includes
-     * embedded NULL characters). String functions will not access the full topic.
-     * Use the topic length value to access the full topic.
-     */
+    
+    /// Return code: The topic has been truncated (the topic string includes
+    /// embedded NULL characters). String functions will not access the full topic.
+    /// Use the topic length value to access the full topic.
     PahoReturnCodeTOPICNAME_TRUNCATED = -7,
-    /**
-     * Return code: A structure parameter does not have the correct eyecatcher
-     * and version number.
-     */
+    
+    /// Return code: A structure parameter does not have the correct eyecatcher
+    /// and version number.
     PahoReturnCodeBAD_STRUCTURE = -8,
-    /**
-     * Return code: A qos parameter is not 0, 1 or 2
-     */
+    
+    /// Return code: A qos parameter is not 0, 1 or 2
     PahoReturnCodeBAD_QOS = -9,
-    /**
-     * Return code: All 65535 MQTT msgids are being used
-     */
+    
+    /// Return code: All 65535 MQTT msgids are being used
     PahoReturnCodeNO_MORE_MSGIDS = -10,
-    /**
-     * Return code: the request is being discarded when not complete
-     */
+    
+    /// Return code: the request is being discarded when not complete
     PahoReturnCodeOPERATION_INCOMPLETE = -11,
-    /**
-     * Return code: no more messages can be buffered
-     */
+    
+    /// Return code: no more messages can be buffered
     PahoReturnCodeMAX_BUFFERED_MESSAGES = -12,
-    /**
-     * Return code: Attempting SSL connection using non-SSL version of library
-     */
+    
+    /// Return code: Attempting SSL connection using non-SSL version of library
     PahoReturnCodeSSL_NOT_SUPPORTED = -13,
-    /**
-     * Return code: protocol prefix in serverURI should be:
-     * @li @em tcp:// or @em mqtt:// - Insecure TCP
-     * @li @em ssl:// or @em mqtts:// - Encrypted SSL/TLS
-     * @li @em ws:// - Insecure websockets
-     * @li @em wss:// - Secure web sockets
-     *
-     * The TLS enabled prefixes (ssl, mqtts, wss) are only valid if the TLS
-     * version of the library is linked with.
-     */
+    
+    /// Return code: protocol prefix in serverURI should be:
+    /// @li @em tcp:// or @em mqtt:// - Insecure TCP
+    /// @li @em ssl:// or @em mqtts:// - Encrypted SSL/TLS
+    /// @li @em ws:// - Insecure websockets
+    /// @li @em wss:// - Secure web sockets
+    /// The TLS enabled prefixes (ssl, mqtts, wss) are only valid if the TLS
+    /// version of the library is linked with.
     PahoReturnCodeBAD_PROTOCOL = -14,
-    /**
-     * Return code: don't use options for another version of MQTT
-     */
+    
+    /// Return code: don't use options for another version of MQTT
     PahoReturnCodeBAD_MQTT_OPTION = -15,
-    /**
-     * Return code: call not applicable to the client's version of MQTT
-     */
+    
+    /// Return code: call not applicable to the client's version of MQTT
     PahoReturnCodeWRONG_MQTT_VERSION = -16,
-    /**
-     *  Return code: 0 length will topic
-     */
+    
+    ///  Return code: 0 length will topic
     PahoReturnCode0_LEN_WILL_TOPIC = -17,
-    /*
-     * Return code: connect or disconnect command ignored because there is already a connect or disconnect
-     * command at the head of the list waiting to be processed. Use the onSuccess/onFailure callbacks to wait
-     * for the previous connect or disconnect command to be complete.
-     */
+    
+    /// Return code: connect or disconnect command ignored because there is already a connect or disconnect
+    /// command at the head of the list waiting to be processed. Use the onSuccess/onFailure callbacks to wait
+    /// for the previous connect or disconnect command to be complete.
     PahoReturnCodeCOMMAND_IGNORED = -18,
-     /*
-      * Return code: maxBufferedMessages in the connect options must be >= 0
-      */
-     PahoReturnCodeMAX_BUFFERED = -19,
-
+    
+    /// Return code: maxBufferedMessages in the connect options must be >= 0
+    PahoReturnCodeMAX_BUFFERED = -19,
 };
 
 
